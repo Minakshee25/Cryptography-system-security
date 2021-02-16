@@ -1,0 +1,31 @@
+import math
+p,q = map(int,input("RSA algorithm\nEnter p and q = ").split(' '))
+if(math.gcd(p,q) != 1):
+    print("GCD of p and q should be 1!")
+else:
+    n = p*q
+    phiofn = (p-1)*(q-1)
+    print(phiofn)
+    for i in range(2,phiofn+1):
+        if(math.gcd(i,phiofn) == 1):
+            e = i
+            break
+    print(e)
+    for i in range(100):
+        if(((phiofn*i +1) % e) == 0):
+            d = ((phiofn * i) + 1)//e
+            print(i,d)
+            break
+    print("public key = ({0},{1})".format(e,n))
+    print("private key = ({0},{1})".format(d,n))
+    
+"""
+Output:
+RSA algorithm
+Enter p and q = 7 17
+96
+5
+4 77
+public key = (5,119)
+private key = (77,119)
+"""
