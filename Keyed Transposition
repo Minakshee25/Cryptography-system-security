@@ -2,7 +2,6 @@ import math
 def Encrypt(PT,K):
     n = math.ceil(len(PT) / len(K))
     PTlst = []
-    j = 0
     for i in range(n):
         PTlst.append(PT[i*len(K) : (i*len(K) + len(K))])
     E = ''
